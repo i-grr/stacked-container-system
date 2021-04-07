@@ -6,7 +6,7 @@ public class TipoPilhaConteiner implements TipoPilhaSequencial<Conteiner> {
 	
 	private final int N = 4;
 	private Conteiner dados[] = new Conteiner[N];
-	private int topo = 0;
+	private int topo;
 
 	@Override
 	public void init() {
@@ -30,7 +30,7 @@ public class TipoPilhaConteiner implements TipoPilhaSequencial<Conteiner> {
             topo++;
         } 
 			else {
-				System.out.println("Stack Overflow: " + valor);
+				System.out.println("Stack Overflow: Conteiner ID = " + valor.getId());
 			}
 	}
 

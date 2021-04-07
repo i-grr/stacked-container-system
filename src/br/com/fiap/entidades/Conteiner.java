@@ -25,4 +25,9 @@ public class Conteiner {
 		this.contMove = contMove;
 	}
 
+	@Override
+	public String toString() {
+		return "Conteiner [contMove = " + contMove + ", idConteiner = " + id + "]";
+	}
+
 }
