@@ -2,7 +2,7 @@ package br.com.fiap.pilhas;
 
 import br.com.fiap.entidades.Conteiner;
 
-public class TipoPilhaConteineres implements TipoPilhaSequencial<Conteiner> {
+public class TipoPilhaConteiner implements TipoPilhaSequencial<Conteiner> {
 	
 	private final int N = 4;
 	private Conteiner dados[] = new Conteiner[N];
@@ -49,6 +49,18 @@ public class TipoPilhaConteineres implements TipoPilhaSequencial<Conteiner> {
 	public void clear() {
 		while (!isEmpty())
 			System.out.println("Valor retirado da pilha: " + pop());
+	}
+
+	public Conteiner[] getDados() {
+		return dados;
+	}
+
+	public int getTopo() {
+		return topo;
+	}
+
+	public int getN() {
+		return N;
 	}
 
 }
