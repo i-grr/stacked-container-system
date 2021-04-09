@@ -35,6 +35,10 @@ public class Processamento {
 		System.out.println("\nPrograma encerrado.");
 	}
 	
+	public void opcaoInvalidaMenu() {
+		System.out.println("\nOpção inválida. Insira uma opção válida para continuar!");
+	}
+	
 	public void insereConteiner(int idConteiner) {
 		if (idConteiner == 0)
 			System.out.println("Não é possível adicionar um conteiner com o ID 0.");
@@ -126,6 +130,7 @@ public class Processamento {
 					else {
 						System.out.println("Movimentado o contêiner " + conteiner.getId());
 						System.out.println("\tConteiner " + conteiner.getId() + " saindo para seu destino final.");
+						pilhaSelecionada.getDados()[pilhaSelecionada.getTopo()] = null;
 						atualizarPlanilhas();
 						achou = true;
 					}	
@@ -137,7 +142,6 @@ public class Processamento {
 					conteiner.setContMove(conteiner.getContMove() + 1);
 					movimentacoesConteineres++;
 					pilhaSelecionada.push(conteiner);
-					atualizarPlanilhas();
 				}
 			}
 			

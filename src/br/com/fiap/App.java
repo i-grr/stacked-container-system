@@ -11,10 +11,9 @@ public class App {
 		Scanner input = new Scanner(System.in);
 		Processamento processamento = new Processamento();
 		int opcao;
-		
+				
 		// Inicando processamento
 		processamento.inicia();
-		
 		
 		do {
 			
@@ -53,7 +52,7 @@ public class App {
 				break;
 
 			default:
-//				opcaoInvalidaMenu();
+				processamento.opcaoInvalidaMenu();
 				break;
 			}
 			
@@ -63,7 +62,6 @@ public class App {
 		} while (opcao != 0);
 		
 		input.close();
-		
 	}
 	
 }
