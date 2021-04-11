@@ -7,12 +7,12 @@ import br.com.fiap.processamento.Processamento;
 public class App {
 
 	public static void main(String[] args) {
-		
+				
 		Scanner input = new Scanner(System.in);
 		Processamento processamento = new Processamento();
 		int opcao;
 				
-		// Inicando processamento
+		// Iniciando o processamento
 		processamento.inicia();
 		
 		do {
@@ -47,7 +47,6 @@ public class App {
 				break;
 				
 			case 5:
-				// Bug depois de realizar movimentação
 				processamento.apresentarPlanilhasConteineres();
 				break;
 

@@ -4,7 +4,7 @@ import br.com.fiap.entidades.Conteiner;
 
 public class TipoPilhaConteiner implements TipoPilhaSequencial<Conteiner> {
 	
-	private final int N = 2;
+	private final int N = 4;
 	private Conteiner dados[] = new Conteiner[N];
 	private int topo;
 
@@ -53,6 +53,10 @@ public class TipoPilhaConteiner implements TipoPilhaSequencial<Conteiner> {
 
 	public Conteiner[] getDados() {
 		return dados;
+	}
+
+	public void setDados(Conteiner[] dados) {
+		this.dados = dados;
 	}
 
 	public int getTopo() {

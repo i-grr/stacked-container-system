@@ -8,6 +8,7 @@ public class Processamento {
 	
 	public int movimentacoesConteineres = 0;
 	public int idConteiner;
+	public final int numPilhas = 2;
 	
 	public TipoPilhaConteiner pilhaConteiner1 = new TipoPilhaConteiner();
 	public int planilhaConteiner1[] = new int[pilhaConteiner1.getN()];
@@ -20,6 +21,7 @@ public class Processamento {
 	public void inicia() {
 		pilhaConteiner1.init();
 		pilhaConteiner2.init();
+		System.out.println("O número de pilhas de conteineres existentes no pátio é " + numPilhas + "\n");
 	}
 	
 	public void gerarMenu() {
@@ -57,8 +59,18 @@ public class Processamento {
 	}
 	
 	public void atualizarPlanilhas() {
+		
+		for (int i = 0; i < pilhaConteiner1.getN(); i++)
+			planilhaConteiner1[i] = 0;
+		
+		for (int i = 0; i < pilhaConteiner2.getN(); i++)
+			planilhaConteiner2[i] = 0;
+		
 		for (int i = 0; i < pilhaConteiner1.getTopo(); i++)
-			planilhaConteiner1[i] = pilhaConteiner1.getDados()[i].getId();
+			if (i != pilhaConteiner1.getTopo())
+				planilhaConteiner1[i] = pilhaConteiner1.getDados()[i].getId();		
+			else
+				planilhaConteiner1[i] = 0;
 
 		for (int i = 0; i < pilhaConteiner2.getTopo(); i++)
 			planilhaConteiner2[i] = pilhaConteiner2.getDados()[i].getId();
@@ -130,8 +142,6 @@ public class Processamento {
 					else {
 						System.out.println("Movimentado o contêiner " + conteiner.getId());
 						System.out.println("\tConteiner " + conteiner.getId() + " saindo para seu destino final.");
-						pilhaSelecionada.getDados()[pilhaSelecionada.getTopo()] = null;
-						atualizarPlanilhas();
 						achou = true;
 					}	
 			}
@@ -145,9 +155,11 @@ public class Processamento {
 				}
 			}
 			
+			atualizarPlanilhas();
+			
 		}
 			else {
-				System.out.println("Não foi encontrado nenhum contêiner com o ID = " + idConteiner);
+				System.out.println("Não foi encontrado nenhum contêiner com o ID = " + idConteiner + " no pátio.");
 			}
 	}
 	
